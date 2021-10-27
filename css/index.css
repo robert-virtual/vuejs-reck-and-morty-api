@@ -37,3 +37,9 @@
   position: relative;
   left: 45%;
 }
+
+.showHideCards {
+  cursor: pointer;
+  width: max-content;
+  border-bottom: 2px solid black;
+}

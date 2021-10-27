@@ -10,8 +10,12 @@
   <body>
     <div id="app">
       <h2>{{title}}</h2>
+
       <h3>Click character to add/remove to favorites</h3>
-      <div class="cards">
+      <h3 class="showHideCards" @click="showCards = !showCards">
+        {{ showCards ? "🔺" :"🔻" }} Cards
+      </h3>
+      <div v-show="showCards" class="cards">
         <card :addfav="addFav" :char="char" v-for="char in chars"></card>
       </div>
     </div>

@@ -5,6 +5,7 @@ const app = Vue.createApp({
     return {
       chars: [],
       title: "Rick and Morty Api",
+      showCards: true,
     };
   },
   methods: {
