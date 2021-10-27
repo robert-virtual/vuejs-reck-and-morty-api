@@ -5,67 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>home</title>
-    <style>
-      * {
-        font-family: sans-serif;
-      }
-      .cards {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-      .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        justify-content: space-around;
-        width: 300px;
-        margin: auto;
-        /* height: 300px; */
-        padding: 15px;
-        background-color: white;
-        box-shadow: 0 0 6px gray;
-        border-radius: 10px;
-      }
-      .favcard {
-        box-shadow: 0 0 12px orange;
-      }
-      .card img {
-        border-radius: 5px;
-      }
-      .card .info {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-      }
-      .card i {
-        position: relative;
-        left: 45%;
-      }
-    </style>
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <div id="app">
       <h2>{{title}}</h2>
       <h3>Click character to add/remove to favorites</h3>
       <div class="cards">
-        <div
-          :class="{card:true,favcard:char.fav}"
-          @click="addFav(i,char.fav)"
-          v-for="char,i in chars"
-        >
-          <i v-show="char.fav">🤍</i>
-          <h2>{{ char.name }}</h2>
-          <img width="250" :src="char.image" alt="" />
-          <div class="info">
-            <h3>{{char.species}}</h3>
-            <span v-if="char.status == 'Alive'">🌼 Vivo</span>
-            <span v-else>🧛‍♂️Dead</span>
-          </div>
-        </div>
+        <card :addfav="addFav" :char="char" v-for="char in chars"></card>
       </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
